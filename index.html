@@ -1,1 +1,160 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>CSE 204: Assignment 07 Image Gallery</title>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body> <!-- Lab 7 partner was Abby Graegin, so we have the same functions created during the lab (fullPage, leftArrow, rightArrow, and exit-->
+        <h1>Kyra's Image Gallery</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="birds.jpg" alt="birds" class="notHidden" id="0">
+                </div>
+                <div class="col-sm-3">
+                    <img src="butterfly.jpg" alt="butterfly" class="notHidden" id="1">
+                </div>
+                <div class="col-sm-3">
+                    <img src="cat.jpeg" alt="cat" class="notHidden" id="2">
+                </div>
+                <div class="col-sm-3">
+                    <img src="clouds.jpg" alt="clouds" class="notHidden" id="3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="dog.jpg" alt="dog" class="notHidden" id="4">
+                </div>
+                <div class="col-sm-3">
+                    <img src="flower.jpg" alt="flower" class="notHidden" id="5">
+                </div>
+                <div class="col-sm-3">
+                    <img src="fruit.jpg" alt="fruit" class="notHidden" id="6">
+                </div>
+                <div class="col-sm-3">
+                    <img src="ocean.jpg" alt="ocean" class="notHidden" id="7">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="plants.jpg" alt="plants" class="notHidden" id="8">
+                </div>
+                <div class="col-sm-3">
+                    <img src="stars.jpg" alt="stars" class="notHidden" id="9">
+                </div>
+                <div class="col-sm-3">
+                    <img src="tiger.jpg" alt="tiger" class="notHidden" id="10">
+                </div>
+                <div class="col-sm-3">
+                    <img src="trees.jpg" alt="trees" class="notHidden" id="11">
+                </div>
+            </div>
+        </div>
 
+        <div class="container2">
+            <img src="birds.jpg" alt="birds" height="800" width="800" class="bigImage 0">
+            <img src="butterfly.jpg" alt="butterfly" height="800" width="800" class="bigImage 1">
+            <img src="cat.jpeg" alt="cat" height="800" width="800" class="bigImage 2">
+            <img src="clouds.jpg" alt="clouds" height="800" width="800" class="bigImage 3">
+            <img src="dog.jpg" alt="dog" height="800" width="800" class="bigImage 4">
+            <img src="flower.jpg" alt="flower" height="800" width="800" class="bigImage 5">
+            <img src="fruit.jpg" alt="fruit" height="800" width="800" class="bigImage 6">
+            <img src="ocean.jpg" alt="ocean" height="800" width="800" class="bigImage 7">
+            <img src="plants.jpg" alt="plants" height="800" width="800" class="bigImage 8">
+            <img src="stars.jpg" alt="stars" height="800" width="800" class="bigImage 9">
+            <img src="tiger.jpg" alt="tiger" height="800" width="800" class="bigImage 10">
+            <img src="trees.jpg" alt="trees" height="800" width="800" class="bigImage 11">
+            
+            <button class="btn" id="left">Left</button>;
+            <button class="btn" id="right">Right</button>;
+            <button class="btn" id="escape">Escape</button>;
+        </div>
+        
+
+        
+    
+        <script>
+            var images = document.getElementsByClassName("notHidden");
+            var bigImages = document.getElementsByClassName("bigImage");
+            console.log(images.length);
+            console.log(bigImages.length);
+            for (var i = 0; i < images.length; i++) { //I used Lecture 15 notes to help with writing this loop
+                images[i].addEventListener("click", fullPage);
+            }
+
+            var current = -1;
+            function fullPage () {
+                console.log(this.alt);
+                console.log("this index is "+ this.id);
+                bigImages[this.id].style.display = "flex";
+                bigImages[this.id].style.position = "absolute";
+                bigImages[this.id].style.zIndex="1";
+                bigImages[this.id].style.margin = "auto";
+
+                document.getElementById("left").style.display = "flex";
+                document.getElementById("right").style.display = "flex";
+                document.getElementById("escape").style.display = "flex";
+
+                current = this.id;
+            }
+
+            
+            document.getElementById("left").addEventListener("click", leftArrow);
+            document.getElementById("right").addEventListener("click", rightArrow);
+            document.getElementById("escape").addEventListener("click", exit);
+
+            function leftArrow () {
+                bigImages[current].style.display = "none";
+                if(current>0){
+                    bigImages[current-1].style.display = "flex";
+                    bigImages[current-1].style.position = "absolute";
+                    bigImages[current-1].style.zIndex="1";
+                    bigImages[current-1].style.margin = "auto";
+
+                    current = current-1;
+                }
+                else if(current==0){
+                    bigImages[11].style.display = "flex";
+                    bigImages[11].style.position = "absolute";
+                    bigImages[11].style.zIndex="1";
+                    bigImages[11].style.margin = "auto";
+
+                    current = 11;
+                }
+
+            }
+            function rightArrow () {
+                bigImages[current].style.display = "none";
+                if(current<11){
+                    current++;
+                    bigImages[current].style.display = "flex";
+                    bigImages[current].style.position = "absolute";
+                    bigImages[current].style.zIndex="1";
+                    bigImages[current].style.margin = "auto";
+
+                    
+                }
+                else if(current ==11){
+                    bigImages[0].style.display = "flex";
+                    bigImages[0].style.position = "absolute";
+                    bigImages[0].style.zIndex="1";
+                    bigImages[0].style.margin = "auto";
+
+                    current = 0;
+                }
+            }
+            function exit () {
+                bigImages[current].style.display = "none";
+                document.getElementById("left").style.display = "none";
+                document.getElementById("right").style.display = "none";
+                document.getElementById("escape").style.display = "none";
+                current = -1;
+            }
+        </script>
+    </body>
+</html>

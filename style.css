@@ -1,0 +1,48 @@
+.container{
+    margin: auto;
+}
+img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.row{
+    margin: auto;
+}
+
+.container2{
+    position: absolute;
+    top: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+.bigImage{
+    position: relative;
+    top: 0px;
+    width: 80%;
+    height: auto;
+    margin-left: auto;
+    display: none;
+    border: solid 4px pink;
+}
+
+.btn{
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+#left{
+    left: 150px;
+    top: 400px;
+}
+#right{
+    right: 150px;
+    top: 400px;
+}
+#escape{
+    top: 10px;
+    left: 150px;
+}
