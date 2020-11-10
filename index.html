@@ -70,9 +70,9 @@
             <img src="tiger.jpg" alt="tiger" height="800" width="800" class="bigImage 10">
             <img src="trees.jpg" alt="trees" height="800" width="800" class="bigImage 11">
             
-            <button class="btn" id="left">Left</button>;
-            <button class="btn" id="right">Right</button>;
-            <button class="btn" id="escape">Escape</button>;
+            <button class="btn" id="left">Previous</button>;
+            <button class="btn" id="right">Next</button>;
+            <button class="btn" id="exit">Close</button>;
         </div>
         
 
@@ -98,7 +98,7 @@
 
                 document.getElementById("left").style.display = "flex";
                 document.getElementById("right").style.display = "flex";
-                document.getElementById("escape").style.display = "flex";
+                document.getElementById("exit").style.display = "flex";
 
                 current = this.id;
             }
@@ -106,7 +106,7 @@
             
             document.getElementById("left").addEventListener("click", leftArrow);
             document.getElementById("right").addEventListener("click", rightArrow);
-            document.getElementById("escape").addEventListener("click", exit);
+            document.getElementById("exit").addEventListener("click", exit);
 
             function leftArrow () {
                 bigImages[current].style.display = "none";
@@ -152,7 +152,7 @@
                 bigImages[current].style.display = "none";
                 document.getElementById("left").style.display = "none";
                 document.getElementById("right").style.display = "none";
-                document.getElementById("escape").style.display = "none";
+                document.getElementById("exit").style.display = "none";
                 current = -1;
             }
         </script>

@@ -1,3 +1,6 @@
+h1{
+    margin-left: 20px;
+}
 .container{
     margin: auto;
 }
@@ -6,6 +9,13 @@ img{
     height: auto;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+.notHidden:hover{
+    opacity: 0.7;
+    box-shadow: 2px 2px 2px;
+}
+.notHidden{
+    border: solid 4px lightgray;
 }
 .row{
     margin: auto;
@@ -37,12 +47,15 @@ img{
 #left{
     left: 150px;
     top: 400px;
+    border: solid 2px black;
 }
 #right{
     right: 150px;
     top: 400px;
+    border: solid 2px black;
 }
-#escape{
+#exit{
     top: 10px;
     left: 150px;
+    border: solid 2px black;
 }
