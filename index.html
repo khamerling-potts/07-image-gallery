@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>CSE 204: Assignment 07 Image Gallery</title>
+        <title>07 Image Gallery</title>
         <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -9,9 +9,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body> <!-- Lab 7 partner was Abby Graegin, so we have the same functions created during the lab (fullPage, leftArrow, rightArrow, and exit-->
+    <body> 
         <h1>Kyra's Image Gallery</h1>
-        <div class="container">
+        <div class="container" id="containerId">
             <div class="row">
                 <div class="col-sm-3">
                     <img src="birds.jpg" alt="birds" class="notHidden" id="0">
@@ -56,23 +56,26 @@
             </div>
         </div>
 
-        <div class="container2">
-            <img src="birds.jpg" alt="birds" height="800" width="800" class="bigImage 0">
-            <img src="butterfly.jpg" alt="butterfly" height="800" width="800" class="bigImage 1">
-            <img src="cat.jpeg" alt="cat" height="800" width="800" class="bigImage 2">
-            <img src="clouds.jpg" alt="clouds" height="800" width="800" class="bigImage 3">
-            <img src="dog.jpg" alt="dog" height="800" width="800" class="bigImage 4">
-            <img src="flower.jpg" alt="flower" height="800" width="800" class="bigImage 5">
-            <img src="fruit.jpg" alt="fruit" height="800" width="800" class="bigImage 6">
-            <img src="ocean.jpg" alt="ocean" height="800" width="800" class="bigImage 7">
-            <img src="plants.jpg" alt="plants" height="800" width="800" class="bigImage 8">
-            <img src="stars.jpg" alt="stars" height="800" width="800" class="bigImage 9">
-            <img src="tiger.jpg" alt="tiger" height="800" width="800" class="bigImage 10">
-            <img src="trees.jpg" alt="trees" height="800" width="800" class="bigImage 11">
+        <div class="container2" id="container2Id">
+            <div class = 'image-wrapper'>
+                <img src="birds.jpg" alt="birds" height="800" width="800" class="bigImage 0">
+                <img src="butterfly.jpg" alt="butterfly" height="800" width="800" class="bigImage 1">
+                <img src="cat.jpeg" alt="cat" height="800" width="800" class="bigImage 2">
+                <img src="clouds.jpg" alt="clouds" height="800" width="800" class="bigImage 3">
+                <img src="dog.jpg" alt="dog" height="800" width="800" class="bigImage 4">
+                <img src="flower.jpg" alt="flower" height="800" width="800" class="bigImage 5">
+                <img src="fruit.jpg" alt="fruit" height="800" width="800" class="bigImage 6">
+                <img src="ocean.jpg" alt="ocean" height="800" width="800" class="bigImage 7">
+                <img src="plants.jpg" alt="plants" height="800" width="800" class="bigImage 8">
+                <img src="stars.jpg" alt="stars" height="800" width="800" class="bigImage 9">
+                <img src="tiger.jpg" alt="tiger" height="800" width="800" class="bigImage 10">
+                <img src="trees.jpg" alt="trees" height="800" width="800" class="bigImage 11">
+                
+                <button class="btn" id="left">Previous</button>
+                <button class="btn" id="right">Next</button>
+                <button class="btn" id="exit">Close</button>
+            </div>
             
-            <button class="btn" id="left">Previous</button>;
-            <button class="btn" id="right">Next</button>;
-            <button class="btn" id="exit">Close</button>;
         </div>
         
 
@@ -95,10 +98,12 @@
                 bigImages[this.id].style.position = "absolute";
                 bigImages[this.id].style.zIndex="1";
                 bigImages[this.id].style.margin = "auto";
+                document.getElementById("containerId").style.visibility = "hidden";
 
                 document.getElementById("left").style.display = "flex";
                 document.getElementById("right").style.display = "flex";
                 document.getElementById("exit").style.display = "flex";
+                
 
                 current = this.id;
             }
@@ -153,6 +158,7 @@
                 document.getElementById("left").style.display = "none";
                 document.getElementById("right").style.display = "none";
                 document.getElementById("exit").style.display = "none";
+                document.getElementById("containerId").style.visibility = "visible";
                 current = -1;
             }
         </script>

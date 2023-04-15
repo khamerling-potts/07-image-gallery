@@ -29,33 +29,39 @@ img{
     align-items: center;
     width: 100%;
 }
+.image-wrapper{
+    position: relative;
+    top: 0px;
+    width: 90%;
+    margin-left: auto;
+    margin: auto;
+}
 .bigImage{
     position: relative;
     top: 0px;
-    width: 80%;
+    width: 100%;
     height: auto;
     margin-left: auto;
     display: none;
     border: solid 4px pink;
 }
-
 .btn{
     display: none;
     position: absolute;
     z-index: 10;
 }
 #left{
-    left: 150px;
+    left: 25px;
     top: 400px;
     border: solid 2px black;
 }
 #right{
-    right: 150px;
+    right: 25px;
     top: 400px;
     border: solid 2px black;
 }
 #exit{
     top: 10px;
-    left: 150px;
+    left: 25px;
     border: solid 2px black;
 }
